@@ -45,6 +45,6 @@ intMotor = int(args['motor'])
 intPwmOn = int(pwmOn)
 intPwmOff = int(pwmOff)
 
-pwm.setPWM(1, intMotor, intPwmOn, intPwmOff)
+pwm.setPWM(intMotor, intPwmOn, intPwmOff)
 
 
