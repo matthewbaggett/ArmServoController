@@ -35,7 +35,7 @@ def setServoPulse(channel, pulse):
 pwm.setPWMFreq(60)                        # Set frequency to 60 Hz
 pwmOn = 4096/int(args['position'])
 pwmOff = 4096 - pwmOn
-print "Servo %d On: %d Off: %d" % int(args['motor']), pwmOn, pwmOff
+print "Servo %d On: %d Off: %d" % (int(args['motor']), pwmOn, pwmOff)
 pwm.setPWM(0, int(args['motor']), pwmOn)
 
 
