@@ -10,8 +10,8 @@ parser.add_argument('-m','--motor', help='Selected motor', required=True)
 parser.add_argument('-p','--position', help='Position to set (between 0 and 100)', required=True)
 args = vars(parser.parse_args())
 
-servoMin = 150  # Min pulse length out of 4096
-servoMax = 600  # Max pulse length out of 4096
+servoMin = 100  # Min pulse length out of 4096
+servoMax = 700  # Max pulse length out of 4096
 servoRange = servoMax - servoMin
 
 # ===========================================================================
