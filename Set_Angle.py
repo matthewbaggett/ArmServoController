@@ -13,8 +13,6 @@ args = vars(parser.parse_args())
 servoMin = 150  # Min pulse length out of 4096
 servoMax = 600  # Max pulse length out of 4096
 
-servoRange = servoMax - servoMin;
-servoPos = ((servoRange/100) * int(args['position'])) + servoMin;
 
 # ===========================================================================
 # Example Code
@@ -35,10 +33,9 @@ def setServoPulse(channel, pulse):
   pwm.setPWM(channel, 0, pulse)
 
 pwm.setPWMFreq(60)                        # Set frequency to 60 Hz
-print "Motor: %d" % int(args['motor'])
-print "Servo Pos: %d" % servoPos
 pwmOn = 4096/int(args['position'])
 pwmOff = 4096 - pwmOn
-pwm.setPWM(int(args['motor']), pwmOn, pwmOff)
+print "Servo %d On: %d Off: %d" % int(args['motor']), pwmOn, pwmOff
+pwm.setPWM(0, int(args['motor']), pwmOn)
 
 
