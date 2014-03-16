@@ -39,7 +39,8 @@ print "Per Percentage Duty: %d" % perPercentageDuty
 servoPositionMultiplied = perPercentageDuty * int(args['position'])
 print "Position Multiplied: %d" % servoPositionMultiplied
 pwmOn = servoPositionMultiplied + servoMin
+pwmOff = 4096 - pwmOn
 print "Servo %d Duty: %d" % (int(args['motor']), pwmOn)
-pwm.setPWM(0, int(args['motor']), int(pwmOn))
+pwm.setPWM(int(args['motor']), int(pwmOn),  int(pwmOff))
 
 
