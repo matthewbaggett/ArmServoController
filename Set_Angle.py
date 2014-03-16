@@ -14,7 +14,7 @@ servoMin = 150  # Min pulse length out of 4096
 servoMax = 600  # Max pulse length out of 4096
 
 servoRange = servoMax - servoMin;
-servoPos = ((servoRange/100) * args['position']) + servoMin;
+servoPos = ((servoRange/100) * int(args['position'])) + servoMin;
 
 # ===========================================================================
 # Example Code
@@ -23,8 +23,6 @@ servoPos = ((servoRange/100) * args['position']) + servoMin;
 # Initialise the PWM device using the default address
 # bmp = PWM(0x40, debug=True)
 pwm = PWM(0x40, debug=True)
-
-
 
 def setServoPulse(channel, pulse):
   pulseLength = 1000000                   # 1,000,000 us per second
