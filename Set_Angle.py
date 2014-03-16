@@ -3,7 +3,7 @@
 from Adafruit_PWM_Servo_Driver import PWM
 import time
 
-from argparse import argparse
+import argparse
 
 parser = argparse.ArgumentParser(description='Description of your program')
 parser.add_argument('-m','--motor', help='Selected motor', required=True)
