@@ -33,7 +33,12 @@ def setServoPulse(channel, pulse):
   pwm.setPWM(channel, 0, pulse)
 
 pwm.setPWMFreq(60)                        # Set frequency to 60 Hz
-pwmOn = ((servoRange/100) * int(args['position'])) + servoMin
+perPercentageDuty = servoRange / 100
+print "Duty Max: %d Duty Min: %d" % (servoMax, servoMin)
+print "Per Percentage Duty: %d" % perPercentageDuty
+servoPositionMultiplied = perPercentageDuty * int(args['position'])
+print "Position Multiplied: %d" % servoPositionMultiplied
+pwmOn = servoPositionMultiplied + servoMin
 print "Servo %d Duty: %d" % (int(args['motor']), pwmOn)
 pwm.setPWM(0, int(args['motor']), pwmOn)
 
