@@ -46,18 +46,17 @@ for i in range(8):
   param = 'motor_' + str(i)
   print "Checking for " + param + " ..."
   if param in args:
-    print args[param];
-    exit;
-    perPercentageDuty = float(float(servoRange) / float(100))
-    print "Duty Max: %d Duty Min: %d" % (servoMax, servoMin)
-    print "Per Percentage Duty: %d" % perPercentageDuty
-    servoPositionMultiplied = perPercentageDuty * int(args[param])
-    print "Position Multiplied: %d" % servoPositionMultiplied
-    pwmOn = servoPositionMultiplied + servoMin
-    pwmOff = 4096 - pwmOn
-    print "Servo %d Duty: %d" % (i, pwmOn)
-    intPwmOn = int(pwmOn)
-    intPwmOff = int(pwmOff)
-    pwm.setPWM(i, 0, intPwmOn)
+    if args[param] is not None:
+      perPercentageDuty = float(float(servoRange) / float(100))
+      print "Duty Max: %d Duty Min: %d" % (servoMax, servoMin)
+      print "Per Percentage Duty: %d" % perPercentageDuty
+      servoPositionMultiplied = perPercentageDuty * int(args[param])
+      print "Position Multiplied: %d" % servoPositionMultiplied
+      pwmOn = servoPositionMultiplied + servoMin
+      pwmOff = 4096 - pwmOn
+      print "Servo %d Duty: %d" % (i, pwmOn)
+      intPwmOn = int(pwmOn)
+      intPwmOff = int(pwmOff)
+      pwm.setPWM(i, 0, intPwmOn)
 
 
