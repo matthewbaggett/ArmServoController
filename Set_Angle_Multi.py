@@ -46,6 +46,8 @@ for i in range(8):
   param = 'motor_' + str(i)
   print "Checking for " + param + " ..."
   if param in args:
+    print args[param];
+    exit;
     perPercentageDuty = float(float(servoRange) / float(100))
     print "Duty Max: %d Duty Min: %d" % (servoMax, servoMin)
     print "Per Percentage Duty: %d" % perPercentageDuty
