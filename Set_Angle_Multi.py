@@ -45,11 +45,12 @@ print args
 for i in range(8):
   print "Checking for -m" + str(i) + "..."
 
-  if 'motor_' + str(i) in args:
+  param = 'motor_' + str(i)
+  if param in args:
     perPercentageDuty = float(float(servoRange) / float(100))
     print "Duty Max: %d Duty Min: %d" % (servoMax, servoMin)
     print "Per Percentage Duty: %d" % perPercentageDuty
-    servoPositionMultiplied = perPercentageDuty * int(args['motor_' + i])
+    servoPositionMultiplied = perPercentageDuty * int(args[param])
     print "Position Multiplied: %d" % servoPositionMultiplied
     pwmOn = servoPositionMultiplied + servoMin
     pwmOff = 4096 - pwmOn
