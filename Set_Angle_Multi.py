@@ -42,7 +42,7 @@ pwm.setPWMFreq(60)                        # Set frequency to 60 Hz
 
 for i in range(8):
 
-  if args['m' + i] is none:
+  if args['m' + i] is not None:
     # Do nothing
   else:
     perPercentageDuty = float(float(servoRange) / float(100))
