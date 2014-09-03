@@ -36,8 +36,6 @@ def setServoPulse(channel, pulse):
 
 pwm.setPWMFreq(60)                        # Set frequency to 60 Hz
 
-print args
-
 for i in range(rangeMax):
   param = 'motor_' + str(i)
   print "Checking for " + param + " ..."
