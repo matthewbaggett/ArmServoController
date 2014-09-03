@@ -43,9 +43,8 @@ pwm.setPWMFreq(60)                        # Set frequency to 60 Hz
 print args
 
 for i in range(8):
-  print "Checking for -m" + str(i) + "..."
-
   param = 'motor_' + str(i)
+  print "Checking for " + param + " ..."
   if param in args:
     perPercentageDuty = float(float(servoRange) / float(100))
     print "Duty Max: %d Duty Min: %d" % (servoMax, servoMin)
