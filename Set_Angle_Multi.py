@@ -41,7 +41,7 @@ def setServoPulse(channel, pulse):
 pwm.setPWMFreq(60)                        # Set frequency to 60 Hz
 
 for i in range(8):
-  if 'm' + i in args:
+  if 'm' + str(i) in args:
     perPercentageDuty = float(float(servoRange) / float(100))
     print "Duty Max: %d Duty Min: %d" % (servoMax, servoMin)
     print "Per Percentage Duty: %d" % perPercentageDuty
