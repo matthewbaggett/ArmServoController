@@ -42,9 +42,12 @@ pwm.setPWMFreq(60)                        # Set frequency to 60 Hz
 
 for i in range(8):
 
-  if args['m' + i] is not None:
-    # Do nothing
-  else:
+  try:
+
+  except NameError:
+    motorval = None
+
+  if 'm' + i in args:
     perPercentageDuty = float(float(servoRange) / float(100))
     print "Duty Max: %d Duty Min: %d" % (servoMax, servoMin)
     print "Per Percentage Duty: %d" % perPercentageDuty
