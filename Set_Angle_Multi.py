@@ -45,7 +45,7 @@ for i in range(8):
     perPercentageDuty = float(float(servoRange) / float(100))
     print "Duty Max: %d Duty Min: %d" % (servoMax, servoMin)
     print "Per Percentage Duty: %d" % perPercentageDuty
-    servoPositionMultiplied = perPercentageDuty * int(args['m' + i]])
+    servoPositionMultiplied = perPercentageDuty * int(args['m' + i])
     print "Position Multiplied: %d" % servoPositionMultiplied
     pwmOn = servoPositionMultiplied + servoMin
     pwmOff = 4096 - pwmOn
