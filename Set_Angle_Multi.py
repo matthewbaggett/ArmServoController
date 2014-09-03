@@ -6,14 +6,14 @@ import time
 import argparse
 
 parser = argparse.ArgumentParser(description='Description of your program')
-parser.add_argument('-m0','--motor-zero', help='Selected motor', required=False)
-parser.add_argument('-m1','--motor-one', help='Selected motor', required=False)
-parser.add_argument('-m2','--motor-two', help='Selected motor', required=False)
-parser.add_argument('-m3','--motor-three', help='Selected motor', required=False)
-parser.add_argument('-m4','--motor-four', help='Selected motor', required=False)
-parser.add_argument('-m5','--motor-five', help='Selected motor', required=False)
-parser.add_argument('-m6','--motor-six', help='Selected motor', required=False)
-parser.add_argument('-m7','--motor-seven', help='Selected motor', required=False)
+parser.add_argument('-m0','--motor-0', help='Selected motor', required=False)
+parser.add_argument('-m1','--motor-1', help='Selected motor', required=False)
+parser.add_argument('-m2','--motor-2', help='Selected motor', required=False)
+parser.add_argument('-m3','--motor-3', help='Selected motor', required=False)
+parser.add_argument('-m4','--motor-4', help='Selected motor', required=False)
+parser.add_argument('-m5','--motor-5', help='Selected motor', required=False)
+parser.add_argument('-m6','--motor-6', help='Selected motor', required=False)
+parser.add_argument('-m7','--motor-7', help='Selected motor', required=False)
 args = vars(parser.parse_args())
 
 servoMin = 100  # Min pulse length out of 4096
@@ -45,18 +45,17 @@ print args
 for i in range(8):
   print "Checking for -m" + str(i) + "..."
 
-  if 'm' + str(i) in args:
+  if 'motor_' + str(i) in args:
     perPercentageDuty = float(float(servoRange) / float(100))
     print "Duty Max: %d Duty Min: %d" % (servoMax, servoMin)
     print "Per Percentage Duty: %d" % perPercentageDuty
-    servoPositionMultiplied = perPercentageDuty * int(args['m' + i])
+    servoPositionMultiplied = perPercentageDuty * int(args['motor_' + i])
     print "Position Multiplied: %d" % servoPositionMultiplied
     pwmOn = servoPositionMultiplied + servoMin
     pwmOff = 4096 - pwmOn
-    intMotor = int(args['m' + i])
     print "Servo %d Duty: %d" % (i, pwmOn)
     intPwmOn = int(pwmOn)
     intPwmOff = int(pwmOff)
-    pwm.setPWM(intMotor, 0, intPwmOn)
+    pwm.setPWM(i, 0, intPwmOn)
 
 
